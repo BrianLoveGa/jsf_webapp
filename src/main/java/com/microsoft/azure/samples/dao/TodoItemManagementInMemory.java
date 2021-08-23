@@ -1,12 +1,13 @@
 package com.microsoft.azure.samples.dao;
 
+
 import com.microsoft.azure.samples.model.TodoItem;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @ApplicationScoped
-public class TodoItemManagementInMemory implements ItemManagement{
+public class TodoItemManagement {
 
     private CopyOnWriteArrayList<TodoItem> todoItems  = new CopyOnWriteArrayList<TodoItem>();
 

@@ -1,10 +1,13 @@
 package com.microsoft.azure.samples.model;
 
-import java.io.Serializable;
 
+import java.io.Serializable;
+import lombok.Data;
+
+@Data
 public class TodoItem implements Serializable {
 
-    private static final long serialVersionUID = 6437012982370705547L;
+    private static final long serialVersionUID = -8967340396649549045L;
     private Long id;
     private String category;
     private String name;
@@ -12,16 +15,16 @@ public class TodoItem implements Serializable {
 
     public TodoItem() {}
 
+    public TodoItem( String name, String category) {
+        this.category = category;
+        this.name = name;
+        this.complete = false;
+    }
+
     public TodoItem(String name, String category, boolean complete) {
         this.name = name;
         this.category = category;
         this.complete = complete;
-    }
-
-    public TodoItem(String category, String name) {
-        this.category = category;
-        this.name = name;
-        this.complete = false;
     }
 
     @Override
@@ -30,42 +33,4 @@ public class TodoItem implements Serializable {
                 "TodoItem[id=%d, category='%s', name='%s', complete='%b']",
                 id, category, name, complete);
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-        return;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-        return;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-        return;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public boolean isComplete() {
-        return complete;
-    }
-
-    public void setComplete(boolean complete) {
-        this.complete = complete;
-        return;
-    }
-
 }
